@@ -28,14 +28,14 @@
         <url-pattern>/*</url-pattern>  
     </filter-mapping>  
    
-   <filter>  
+   <!-- <filter>  
         <filter-name>wxAuthFilter</filter-name>  
         <filter-class>com.kindp.market.filter.WexinAuthFilter</filter-class>
     </filter>  
     <filter-mapping>  
         <filter-name>wxAuthFilter</filter-name>
         <url-pattern>/*</url-pattern>  
-    </filter-mapping>
+    </filter-mapping> -->
    
     <listener>  
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
@@ -54,4 +54,14 @@
         <servlet-name>spring</servlet-name>  
         <url-pattern>/</url-pattern>  
     </servlet-mapping>  
+    
+    <servlet>
+      <servlet-name>wsSnake</servlet-name>
+      <servlet-class>com.kindp.market.servlet.MyWebSocketServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>wsSnake</servlet-name>
+      <url-pattern>/websocket/test</url-pattern>
+    </servlet-mapping>
+    
 </web-app> 

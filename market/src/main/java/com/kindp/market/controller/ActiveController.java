@@ -10,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/active")
 public class ActiveController {
-	
 	@RequestMapping("toSayGreet")
 	@ResponseBody
 	public ModelAndView toSayGreet(HttpServletResponse response){
