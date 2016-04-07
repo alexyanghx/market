@@ -1,0 +1,11 @@
+<WxMpConfigStorage>
+    <appId>wx1b24a335e9da822c</appId>
+    <secret>67af22235b966e6342b4660d4839802c</secret>
+    <token>1234</token><!-- 公众号Token -->
+    <aesKey>1234</aesKey><!-- 公众号EncodingAESKey -->
+    <!-- <accessToken></accessToken>
+    <expiresTime></expiresTime>
+    <openId></openId>-->
+    <oauth2redirectUri>http://123.57.174.156:8080/market/active/toSayGreet</oauth2redirectUri> <!-- 网页授权获取用户信息回调地址 -->
+	<debug>true</debug>
+</WxMpConfigStorage>

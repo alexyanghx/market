@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kindp.market.dao.TcLgstcCompanyMapper" >
+  <resultMap id="BaseResultMap" type="com.kindp.market.model.TcLgstcCompany" >
+    <id column="LGSTC_COMP_ID" property="lgstcCompId" jdbcType="BIGINT" />
+    <result column="MCHT_ID" property="mchtId" jdbcType="BIGINT" />
+    <result column="MCHT_NAME" property="mchtName" jdbcType="VARCHAR" />
+    <result column="MCHT_TYPE" property="mchtType" jdbcType="INTEGER" />
+    <result column="LGSTC_COMP_CODE" property="lgstcCompCode" jdbcType="VARCHAR" />
+    <result column="LGSTC_COMP_NAME" property="lgstcCompName" jdbcType="VARCHAR" />
+    <result column="LGSTC_COMP_STNAME" property="lgstcCompStname" jdbcType="VARCHAR" />
+    <result column="LGSTC_COMP_DESC" property="lgstcCompDesc" jdbcType="VARCHAR" />
+    <result column="LGSTC_COMP_STATE" property="lgstcCompState" jdbcType="INTEGER" />
+    <result column="DATA_STATE" property="dataState" jdbcType="INTEGER" />
+    <result column="CREATE_OPID" property="createOpid" jdbcType="BIGINT" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="MODIFY_OPID" property="modifyOpid" jdbcType="BIGINT" />
+    <result column="MODIFY_TIME" property="modifyTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    LGSTC_COMP_ID, MCHT_ID, MCHT_NAME, MCHT_TYPE, LGSTC_COMP_CODE, LGSTC_COMP_NAME, LGSTC_COMP_STNAME, 
+    LGSTC_COMP_DESC, LGSTC_COMP_STATE, DATA_STATE, CREATE_OPID, CREATE_TIME, MODIFY_OPID, 
+    MODIFY_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tc_lgstc_company
+    where LGSTC_COMP_ID = #{lgstcCompId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tc_lgstc_company
+    where LGSTC_COMP_ID = #{lgstcCompId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.kindp.market.model.TcLgstcCompany" >
+    insert into tc_lgstc_company (LGSTC_COMP_ID, MCHT_ID, MCHT_NAME, 
+      MCHT_TYPE, LGSTC_COMP_CODE, LGSTC_COMP_NAME, 
+      LGSTC_COMP_STNAME, LGSTC_COMP_DESC, LGSTC_COMP_STATE, 
+      DATA_STATE, CREATE_OPID, CREATE_TIME, 
+      MODIFY_OPID, MODIFY_TIME)
+    values (#{lgstcCompId,jdbcType=BIGINT}, #{mchtId,jdbcType=BIGINT}, #{mchtName,jdbcType=VARCHAR}, 
+      #{mchtType,jdbcType=INTEGER}, #{lgstcCompCode,jdbcType=VARCHAR}, #{lgstcCompName,jdbcType=VARCHAR}, 
+      #{lgstcCompStname,jdbcType=VARCHAR}, #{lgstcCompDesc,jdbcType=VARCHAR}, #{lgstcCompState,jdbcType=INTEGER}, 
+      #{dataState,jdbcType=INTEGER}, #{createOpid,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{modifyOpid,jdbcType=BIGINT}, #{modifyTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kindp.market.model.TcLgstcCompany" >
+    insert into tc_lgstc_company
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lgstcCompId != null" >
+        LGSTC_COMP_ID,
+      </if>
+      <if test="mchtId != null" >
+        MCHT_ID,
+      </if>
+      <if test="mchtName != null" >
+        MCHT_NAME,
+      </if>
+      <if test="mchtType != null" >
+        MCHT_TYPE,
+      </if>
+      <if test="lgstcCompCode != null" >
+        LGSTC_COMP_CODE,
+      </if>
+      <if test="lgstcCompName != null" >
+        LGSTC_COMP_NAME,
+      </if>
+      <if test="lgstcCompStname != null" >
+        LGSTC_COMP_STNAME,
+      </if>
+      <if test="lgstcCompDesc != null" >
+        LGSTC_COMP_DESC,
+      </if>
+      <if test="lgstcCompState != null" >
+        LGSTC_COMP_STATE,
+      </if>
+      <if test="dataState != null" >
+        DATA_STATE,
+      </if>
+      <if test="createOpid != null" >
+        CREATE_OPID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="modifyOpid != null" >
+        MODIFY_OPID,
+      </if>
+      <if test="modifyTime != null" >
+        MODIFY_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lgstcCompId != null" >
+        #{lgstcCompId,jdbcType=BIGINT},
+      </if>
+      <if test="mchtId != null" >
+        #{mchtId,jdbcType=BIGINT},
+      </if>
+      <if test="mchtName != null" >
+        #{mchtName,jdbcType=VARCHAR},
+      </if>
+      <if test="mchtType != null" >
+        #{mchtType,jdbcType=INTEGER},
+      </if>
+      <if test="lgstcCompCode != null" >
+        #{lgstcCompCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lgstcCompName != null" >
+        #{lgstcCompName,jdbcType=VARCHAR},
+      </if>
+      <if test="lgstcCompStname != null" >
+        #{lgstcCompStname,jdbcType=VARCHAR},
+      </if>
+      <if test="lgstcCompDesc != null" >
+        #{lgstcCompDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="lgstcCompState != null" >
+        #{lgstcCompState,jdbcType=INTEGER},
+      </if>
+      <if test="dataState != null" >
+        #{dataState,jdbcType=INTEGER},
+      </if>
+      <if test="createOpid != null" >
+        #{createOpid,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyOpid != null" >
+        #{modifyOpid,jdbcType=BIGINT},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kindp.market.model.TcLgstcCompany" >
+    update tc_lgstc_company
+    <set >
+      <if test="mchtId != null" >
+        MCHT_ID = #{mchtId,jdbcType=BIGINT},
+      </if>
+      <if test="mchtName != null" >
+        MCHT_NAME = #{mchtName,jdbcType=VARCHAR},
+      </if>
+      <if test="mchtType != null" >
+        MCHT_TYPE = #{mchtType,jdbcType=INTEGER},
+      </if>
+      <if test="lgstcCompCode != null" >
+        LGSTC_COMP_CODE = #{lgstcCompCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lgstcCompName != null" >
+        LGSTC_COMP_NAME = #{lgstcCompName,jdbcType=VARCHAR},
+      </if>
+      <if test="lgstcCompStname != null" >
+        LGSTC_COMP_STNAME = #{lgstcCompStname,jdbcType=VARCHAR},
+      </if>
+      <if test="lgstcCompDesc != null" >
+        LGSTC_COMP_DESC = #{lgstcCompDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="lgstcCompState != null" >
+        LGSTC_COMP_STATE = #{lgstcCompState,jdbcType=INTEGER},
+      </if>
+      <if test="dataState != null" >
+        DATA_STATE = #{dataState,jdbcType=INTEGER},
+      </if>
+      <if test="createOpid != null" >
+        CREATE_OPID = #{createOpid,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyOpid != null" >
+        MODIFY_OPID = #{modifyOpid,jdbcType=BIGINT},
+      </if>
+      <if test="modifyTime != null" >
+        MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where LGSTC_COMP_ID = #{lgstcCompId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kindp.market.model.TcLgstcCompany" >
+    update tc_lgstc_company
+    set MCHT_ID = #{mchtId,jdbcType=BIGINT},
+      MCHT_NAME = #{mchtName,jdbcType=VARCHAR},
+      MCHT_TYPE = #{mchtType,jdbcType=INTEGER},
+      LGSTC_COMP_CODE = #{lgstcCompCode,jdbcType=VARCHAR},
+      LGSTC_COMP_NAME = #{lgstcCompName,jdbcType=VARCHAR},
+      LGSTC_COMP_STNAME = #{lgstcCompStname,jdbcType=VARCHAR},
+      LGSTC_COMP_DESC = #{lgstcCompDesc,jdbcType=VARCHAR},
+      LGSTC_COMP_STATE = #{lgstcCompState,jdbcType=INTEGER},
+      DATA_STATE = #{dataState,jdbcType=INTEGER},
+      CREATE_OPID = #{createOpid,jdbcType=BIGINT},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      MODIFY_OPID = #{modifyOpid,jdbcType=BIGINT},
+      MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP}
+    where LGSTC_COMP_ID = #{lgstcCompId,jdbcType=BIGINT}
+  </update>
+</mapper>
